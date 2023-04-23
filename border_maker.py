@@ -10,7 +10,7 @@ class BorderMaker():
 
     def __init__(self):
         self.twitter = Twitter()
-        self.kkma = Kkma()
+        #hello world
 
         self.final_trans = dict()
         with open('final_trans.csv', 'r', encoding='utf-8') as ft_file:
