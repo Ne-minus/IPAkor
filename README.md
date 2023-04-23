@@ -1,1 +1,2 @@
-# kor_to_phonemes
+# rhyme_analysis
+Python library for rhyme analysis
