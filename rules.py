@@ -190,6 +190,7 @@ class Rules():
           given = given.replace('n'+'#'+tv, 'n'+'#'+voiced)
           given = given.replace('m'+'#'+tv, 'm'+'#'+voiced)
           given = given.replace('l'+'#'+tv, 'l'+'#'+voiced)
+          given = given.replace('ŋ'+'#'+tv, 'ŋ'+'#'+voiced)
 
       return given
 
