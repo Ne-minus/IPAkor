@@ -57,7 +57,7 @@ class Rules():
       
       # нечитаемый ㅎ (с ㄹ разобрались в liquids)
       h_silent = ['m-h', 'n-h', 's-h', 's͈-h', 
-                  'h-m', 'h-n', 'h-s', 'h-s͈']
+                  'h-m', 'h-n', 'h-s', 'h-s͈', 'ŋ-h']
       for h in h_silent:
           hh = h.replace('h', '')
           given = given.replace(h, hh)
