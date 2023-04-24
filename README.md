@@ -6,9 +6,9 @@ We believe the transcription to represent the South Korean standard language.
 ## The rules
 
 ### Position rules
-ʧ → t/_#, ʧʧ → t/_#, ʧʰ → t/_#
+ʧ → t/_\#, ʧʧ → t/_\#, ʧʰ → t/_\#
 
-h → t/_#, s → t/_#, ss → t/_#
+h → t/_\#, s → t/_\#, ss → t/_\#
 
 h → ɦ/ V_V
 
