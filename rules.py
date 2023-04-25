@@ -175,24 +175,26 @@ class Rules():
   
 
   def voicing(self, given):      # должно быть после патчимов
-      vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e']
-      to_voice = {'c':'ɟ', 'k':'g', 't':'d', 'p':'b',
-                  'cʲ':'ɟʲ', 'kʲ':'gʲ', 'tʲ':'dʲ', 'pʲ':'bʲ'}
-      for tv in to_voice.keys():
-          voiced = to_voice[tv]
-          for v1 in vowels:
-              for v2 in vowels:
-                  given = given.replace(v1+tv+'-'+v2, v1+voiced+'-'+v2)
-                  given = given.replace(v1+'-'+tv+v2, v1+'-'+voiced+v2)
-          given = given.replace('n'+'-'+tv, 'n'+'-'+voiced)
-          given = given.replace('m'+'-'+tv, 'm'+'-'+voiced)
-          given = given.replace('l'+'-'+tv, 'l'+'-'+voiced)
-          given = given.replace('n'+'#'+tv, 'n'+'#'+voiced)
-          given = given.replace('m'+'#'+tv, 'm'+'#'+voiced)
-          given = given.replace('l'+'#'+tv, 'l'+'#'+voiced)
-          given = given.replace('ŋ'+'#'+tv, 'ŋ'+'#'+voiced)
+    #фонетические переходы в позиции между гласными
+    vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e']
+    to_voice = {'c':'ɟ', 'k':'g', 't':'d', 'p':'b', 'h': 'ɦ',
+              'cʲ':'ɟʲ', 'kʲ':'gʲ', 'tʲ':'dʲ', 'pʲ':'bʲ'}
+    for tv in to_voice.keys():
+      voiced = to_voice[tv]
+      for v1 in vowels:
+          for v2 in vowels:
+              given = given.replace(v1+tv+'-'+v2, v1+voiced+'-'+v2)
+              given = given.replace(v1+'-'+tv+v2, v1+'-'+voiced+v2)
+      given = given.replace('n'+'-'+tv, 'n'+'-'+voiced)
+      given = given.replace('m'+'-'+tv, 'm'+'-'+voiced)
+      given = given.replace('l'+'-'+tv, 'l'+'-'+voiced)
+      given = given.replace('ŋ'+'-'+tv, 'ŋ'+'-'+voiced)
+      given = given.replace('n'+'#'+tv, 'n'+'#'+voiced)
+      given = given.replace('m'+'#'+tv, 'm'+'#'+voiced)
+      given = given.replace('l'+'#'+tv, 'l'+'#'+voiced)
+      given = given.replace('ŋ'+'#'+tv, 'ŋ'+'#'+voiced)
 
-      return given
+    return given
 
 
   def pot(self, given):       # должно быть в самом конце
