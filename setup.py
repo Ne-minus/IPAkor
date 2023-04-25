@@ -10,5 +10,6 @@ setuptools.setup(name='IPAkor',
                      'Topic :: NLP :: Rhymes_analyzer'
                  ],
                  install_requires=['konply', 'csv', 're'],
-                 python_requires='>=3'
+                 python_requires='>=3',
+                 author_email='neminova2.0@gmail.com'
                  )
