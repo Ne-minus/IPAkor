@@ -57,73 +57,144 @@ class Rules():
       
       # нечитаемый ㅎ (с ㄹ разобрались в liquids)
       h_silent = ['m-h', 'n-h', 's-h', 's͈-h', 
-                  'h-m', 'h-n', 'h-s', 'h-s͈']
+                  'h-m', 'h-n', 'h-s', 'h-s͈', 'ŋ-h']
       for h in h_silent:
           hh = h.replace('h', '')
           given = given.replace(h, hh)
 
       return given
 
-  def stop_assim(self, chanks):
-      sonors = ['m', 'n']
-      stops_to_sonors = {'m': ['p', 'pʰ', 'p͈', 'lb', 'ps'],
-                        'n': ['t', 'tʰ', 't͈', 'c', 'cʰ', 'c͈', 's', 's͈'],
-                        'ŋ': ['k', 'kʰ', 'k͈', 'lg', 'ks'],
-                        }
-      for i in range(len(chanks) - 1):
-          for k, v in stops_to_sonors.items():
-              bgram = re.search(r'(lg|ps|ks|lb|cʰ|kʰ|tʰ|pʰ|t͈|k͈|p͈|c͈)', chanks[i][-2:])
-              if bgram is None: 
-                  if chanks[i][-1] in v and chanks[i + 1][0] == 'ɾ':
-                      chanks[i] = chanks[i][:-1] + k
-                      chanks[i + 1] = 'n' + chanks[i + 1][1:]
-                      
-                  elif chanks[i][-1] in v and chanks[i + 1][0] in sonors:
-                      chanks[i] = chanks[i][:-1] + k
-              else:
-                  if bgram.group(1) in v and chanks[i + 1][0] == 'ɾ':
-                      chanks[i] = chanks[i][:-2] + k
-                      chanks[i + 1] = 'n' + chanks[i + 1][1:]
-                                          
-                  elif bgram.group(1) in v and chanks[i + 1][0] in sonors:
-                      chanks[i] = chanks[i][:-2] + k
-                      
-      return chanks
+ def stop_assim(self, given):
+    # ассимиляция взрывных перед сонорными
+    seps = ['-', '#']
+    sonors = ['m', 'n']
+    stops_to_sonors = {'m': ['p', 'pʰ', 'p͈', 'lb', 'ps'],
+                       'n': ['t', 'tʰ', 't͈', 'c', 'cʰ', 'c͈', 's', 's͈'],
+                       'ŋ': ['k', 'kʰ', 'k͈', 'lg', 'ks'],
+                      }
+    for s in seps:
+        chunks = given.split(s)
+        for i in range(len(chunks) - 1):
+            for k, v in stops_to_sonors.items():
+                bgram = re.search(r'(lg|ps|ks|lb|cʰ|kʰ|tʰ|pʰ|t͈|k͈|p͈|c͈)', chunks[i][-2:])
+                if bgram is None: 
+                    if chunks[i][-1] in v and chunks[i + 1][0] == 'ɾ':
+                        chunks[i] = chunks[i][:-1] + k
+                        chunks[i + 1] = 'n' + chunks[i + 1][1:]
 
-  def sonor_assim(self, chanks):
-      final_sonor = ['m', 'ŋ']
-      for i in range(len(chanks) - 1):
-          if chanks[i][-1] == 'ɾ' and chanks[i + 1][0] == 'n':
-              chanks[i] = chanks[i][:-1] + 'l'
-              chanks[i + 1] = 'l' + chanks[i + 1][1:]
-              
-          elif chanks[i][-1] == 'n' and chanks[i + 1][0] == 'ɾ':
-              chanks[i] = chanks[i][:-1] + 'l'
-              chanks[i + 1] = 'l' + chanks[i + 1][1:]
-              
-          elif chanks[i][-1] in final_sonor and chanks[i + 1][0] == 'ɾ':
-              chanks[i + 1] = 'n' + chanks[i + 1][1:]
-              
-      return chanks
+                    elif chunks[i][-1] in v and chunks[i + 1][0] in sonors:
+                        chunks[i] = chunks[i][:-1] + k
+                else:
+                    if bgram.group(1) in v and chunks[i + 1][0] == 'ɾ':
+                        chunks[i] = chanks[i][:-2] + k
+                        chunks[i + 1] = 'n' + chunks[i + 1][1:]
+
+                    elif bgram.group(1) in v and chunks[i + 1][0] in sonors:
+                        chunks[i] = chunks[i][:-2] + k
+        given = s.join(chunks)
+                    
+    return given
+  
+  def spirantization(self, given):
+    seps = ['-', '#']
+    for s in seps:
+        chunks = given.split(s)
+        for i in range(len(chunks) - 1):
+            if chunks[i][-1] in ['t', 'tʰ', 't͈'] and chunks[i + 1][0] in ['s', 's͈']:
+                chunks[i] = chunks[i][:-1] + 's'
+                
+        given = s.join(chunks)
+        
+    return given
+
+  def sonor_assim(self, given):
+    # после stop_assim
+    # ассимиляция сонорных ㄹ-ㄴ, ㅁ/ㄴ-ㄹ
+    seps = ['-', '#']
+    final_sonor = ['m', 'ŋ']
+    for s in seps:
+        chunks = given.split(s)
+        for i in range(len(chunks) - 1):
+            if chunks[i][-1] == 'ɾ' and chunks[i + 1][0] == 'n':
+                chunks[i] = chunks[i][:-1] + 'l'
+                chunks[i + 1] = 'l' + chunks[i + 1][1:]
+
+            elif chunks[i][-1] == 'n' and chunks[i + 1][0] == 'ɾ':
+                chunks[i] = chunks[i][:-1] + 'l'
+                chunks[i + 1] = 'l' + chunks[i + 1][1:]
+
+            elif chunks[i][-1] in final_sonor and chunks[i + 1][0] == 'ɾ':
+                chunks[i + 1] = 'n' + chunks[i + 1][1:]
+        given = s.join(chunks)
+            
+    return given
+
+
+  def coronal_asim(self, given):
+    # ассимиляция переднеязычных
+    
+    seps = ['-', '#']
+    coronals = ['t', 't͈', 'tʰ', 's', 's͈' ]
+    
+    labial = ['m','p', 'pʰ', 'p͈']
+    post_alveolar = ['cʰ', 'c', 'c͈']
+    velars = ['k', 'kʰ', 'k͈', 'g']
+    for s in seps:
+        chunks = given.split(s)
+        for i in range(len(chunks) - 1):
+            # before labial
+            if chunks[i][-1] in coronals and chunks[i + 1][0] in labial and chunks[i + 1][0] != 'm':
+                chanks[i] = chanks[i][:-1] + 'p'
+
+            elif chunks[i][-1] == 'n' and chunks[i + 1][0] in labial and chunks[i + 1][0] != 'm':
+                chunks[i] = chunks[i][:-1] + 'm'
+
+            # before velars
+            elif chunks[i][-1] in coronals and chunks[i + 1][0] in velars:
+                chunks[i] = chunks[i][:-1] + 'k'
+
+            elif chunks[i][-1] == 'n' and chunks[i + 1][0] in velars:
+                chunks[i] = chunks[i][:-1] + 'ŋ'
+
+            # before post_alveolar
+            elif chunks[i][-1] in coronals and chunks[i + 1][0] in post_alveolar:
+                chunks[i] = chunks[i][:-1] + 'c'
+
+            # labials and post alveolars assimilate to velars
+            elif chunks[i][-1] in labial and chunks[i + 1][0] in velars and chunks[i][-1] != 'm':
+                chunks[i] = chunks[i][:-1] + 'k'
+
+            elif chunks[i][-1] in labial and chunks[i + 1][0] in velars and chunks[i][-1] == 'm':
+                chunks[i] = chunks[i][:-1] + 'ŋ'
+
+            elif chunks[i][-1] in post_alveolar and chunks[i + 1][0] in velars:
+                chunks[i] = chunks[i][:-1] + 'k'
+        given = s.join(chunks)
+        
+    return given
+  
 
   def voicing(self, given):      # должно быть после патчимов
-      vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e']
-      to_voice = {'c':'ɟ', 'k':'g', 't':'d', 'p':'b',
-                  'cʲ':'ɟʲ', 'kʲ':'gʲ', 'tʲ':'dʲ', 'pʲ':'bʲ'}
-      for tv in to_voice.keys():
-          voiced = to_voice[tv]
-          for v1 in vowels:
-              for v2 in vowels:
-                  given = given.replace(v1+tv+'-'+v2, v1+voiced+'-'+v2)
-                  given = given.replace(v1+'-'+tv+v2, v1+'-'+voiced+v2)
-          given = given.replace('n'+'-'+tv, 'n'+'-'+voiced)
-          given = given.replace('m'+'-'+tv, 'm'+'-'+voiced)
-          given = given.replace('l'+'-'+tv, 'l'+'-'+voiced)
-          given = given.replace('n'+'#'+tv, 'n'+'#'+voiced)
-          given = given.replace('m'+'#'+tv, 'm'+'#'+voiced)
-          given = given.replace('l'+'#'+tv, 'l'+'#'+voiced)
+    #фонетические переходы в позиции между гласными
+    vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e']
+    to_voice = {'c':'ɟ', 'k':'g', 't':'d', 'p':'b', 'h': 'ɦ',
+              'cʲ':'ɟʲ', 'kʲ':'gʲ', 'tʲ':'dʲ', 'pʲ':'bʲ'}
+    for tv in to_voice.keys():
+      voiced = to_voice[tv]
+      for v1 in vowels:
+          for v2 in vowels:
+              given = given.replace(v1+tv+'-'+v2, v1+voiced+'-'+v2)
+              given = given.replace(v1+'-'+tv+v2, v1+'-'+voiced+v2)
+      given = given.replace('n'+'-'+tv, 'n'+'-'+voiced)
+      given = given.replace('m'+'-'+tv, 'm'+'-'+voiced)
+      given = given.replace('l'+'-'+tv, 'l'+'-'+voiced)
+      given = given.replace('ŋ'+'-'+tv, 'ŋ'+'-'+voiced)
+      given = given.replace('n'+'#'+tv, 'n'+'#'+voiced)
+      given = given.replace('m'+'#'+tv, 'm'+'#'+voiced)
+      given = given.replace('l'+'#'+tv, 'l'+'#'+voiced)
+      given = given.replace('ŋ'+'#'+tv, 'ŋ'+'#'+voiced)
 
-      return given
+    return given
 
 
   def pot(self, given):       # должно быть в самом конце
@@ -136,12 +207,3 @@ class Rules():
           given = given.replace(obs+'-c', obs+'-c͈')
 
       return given
-
-  #for i in range(len(words)):
-      #ассимиляция между слогами
-  #    words[i] = "-".join(stop_assim(words[i].split('-')))
-  #    words[i] = "-".join(sonor_assim(words[i].split('-')))
-
-  #ассимиляция между словами
-  #words = stop_assim(words)
-  #words = sonor_assim(words)
