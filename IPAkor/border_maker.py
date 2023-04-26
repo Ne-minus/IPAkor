@@ -5,19 +5,23 @@ from konlpy.tag import Twitter
 from konlpy.tag import Kkma
 import csv
 import re
+import wget
+
 
 class BorderMaker():
 
     def __init__(self):
         self.twitter = Twitter()
-        #hello world
+        self.kkma = Kkma()
 
         self.final_trans = dict()
-        with open('final_trans.csv', 'r', encoding='utf-8') as ft_file:
-          spamreader = csv.reader(ft_file)
-          for row in spamreader:
-              self.final_trans[row[0]] = row[2]
+        self.filename = wget.download(
+            'https://raw.githubusercontent.com/Ne-minus/kor_to_phonemes/main/IPAkor/final_trans.csv')
+        with open(self.filename, encoding='utf-8') as ft_file:
+            spamreader = csv.reader(ft_file)
 
+            for row in spamreader:
+                self.final_trans[row[0]] = row[2]
 
     def intruser(self, word: str) -> str:
         ready_word = ''
@@ -28,7 +32,7 @@ class BorderMaker():
     def separator(self, text: str) -> str:
         syll_dict = dict()
 
-        with open('final_trans.csv') as csvfile:
+        with open(self.filename) as csvfile:
             spamreader = csv.reader(csvfile)
             sylls = list(spamreader)
             for s in sylls:

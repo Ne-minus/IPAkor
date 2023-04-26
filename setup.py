@@ -9,7 +9,7 @@ setuptools.setup(name='IPAkor',
                      'Operating System :: OS Independent',
                      'Topic :: Scientific/Engineering'
                  ],
-                 install_requires=['konlpy'],
+                 install_requires=['konlpy', 'wget'],
                  python_requires='>=3',
                  author_email='neminova2.0@gmail.com'
                  )
