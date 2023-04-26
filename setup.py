@@ -7,7 +7,7 @@ setuptools.setup(name='IPAkor',
                  classifiers=[
                      'Programming Language :: Python :: 3',
                      'Operating System :: OS Independent',
-                     'Topic :: NLP :: Rhymes_analyzer'
+                     'Topic :: Scientific/Engineering'
                  ],
                  install_requires=['konply', 'csv', 're'],
                  python_requires='>=3',
