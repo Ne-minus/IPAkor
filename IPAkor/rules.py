@@ -30,8 +30,21 @@ class Rules():
 
         return given
 
+    def yi(self, given):
+        # читает ый
+        res = ''
+        for i in range(len(given)):
+            if given[i] == 'ы':
+                if given[i - 1] == '/':
+                    res += 'ɰi'
+                else:
+                    res += 'i'
+            else:
+                res += given[i]
+        return res
+
     def liquids(self, given):
-        vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e']
+        vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e', 'ɰi']
         given = given.replace('ɾ', 'l')
         for v in vowels:
             given = given.replace('l' + v, 'ɾ' + v)
@@ -174,9 +187,41 @@ class Rules():
 
         return given
 
-    def voicing(self, given):  # должно быть после патчимов
+    def patchims(self, given):
+        # чтение патчимов
+        seps = ['-', '#']
+        vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e', 'ɰi']
+        excepted = {'nʌlb': 'nʌp', 'pɐlb': 'pɐp'}
+        first = {'ks': 'k', 'lg': 'k', 'nɟ': 'n', 'nh': 'n', 'lm': 'm', 'lb': 'l', 'ls': 'l', 'ltʰ': 'l', 'lh': 'l',
+                 'lpʰ': 'p', 'ps': 'p'}
+        second = {'t͈': 't', 'tʰ': 't', 's': 't', 's͈': 't', 'cʰ': 't', 'c': 't', 'c͈': 't', 'h': 't'}
+        # конец слога перед согласной
+        for s in seps:
+            chunks = given.split(s)
+            for i in range(len(chunks) - 1):
+                if chunks[i + 1][0] not in vowels:
+                    for root in excepted.keys():  # проверка на исключения
+                        if root in chunks[i]:
+                            chunks[i] = excepted[root]
+                    for patchim in first.keys():
+                        if patchim in chunks[i][-3:]:
+                            chunks[i] = chunks[i].replace(patchim, first[patchim])
+                    for patchim in second.keys():
+                        if patchim in chunks[i][-2:]:
+                            chunks[i] = chunks[i].replace(patchim, second[patchim])
+            given = s.join(chunks)
+        # абсолютный конец
+        for root in excepted.keys():
+            given = given.replace(root + '/', excepted[root] + '/')
+        for patchim in first.keys():
+            given = given.replace(patchim + '/', first[patchim] + '/')
+        for patchim in second.keys():
+            given = given.replace(patchim + '/', second[patchim] + '/')
+        return given
+
+    def voicing_and_h(self, given):  # должно быть после патчимов
         # фонетические переходы в позиции между гласными
-        vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e']
+        vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e', 'ɰi']
         to_voice = {'c': 'ɟ', 'k': 'g', 't': 'd', 'p': 'b', 'h': 'ɦ',
                     'cʲ': 'ɟʲ', 'kʲ': 'gʲ', 'tʲ': 'dʲ', 'pʲ': 'bʲ'}
         for tv in to_voice.keys():
