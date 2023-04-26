@@ -19,15 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfcd4afa-eadd-4e64-9e7e-dc7162dc08ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kor_to_phonemes.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="bfcd4afa-eadd-4e64-9e7e-dc7162dc08ca" name="Default Changelist" comment="added patchims">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IPAkor/border_maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/IPAkor/border_maker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IPAkor/rules.py" beforeDir="false" afterPath="$PROJECT_DIR$/IPAkor/rules.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +53,56 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
+  <component name="RunManager" selected="Python.border_maker">
+    <configuration name="border_maker" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="kor_to_phonemes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/IPAkor" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/IPAkor/border_maker.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="rules" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="kor_to_phonemes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/IPAkor" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/IPAkor/rules.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.border_maker" />
+        <item itemvalue="Python.rules" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -68,6 +112,14 @@
       <option name="presentableId" value="Default" />
       <updated>1682448575816</updated>
     </task>
+    <task id="LOCAL-00001" summary="added patchims">
+      <created>1682514778602</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682514778602</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -81,15 +133,35 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added patchims" />
+    <option name="LAST_COMMIT_MESSAGE" value="added patchims" />
+  </component>
   <component name="WindowStateProjectService">
+    <state width="1515" height="591" key="GridCell.Tab.0.bottom" timestamp="1682518200151">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="591" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1682518200151" />
+    <state width="1515" height="591" key="GridCell.Tab.0.center" timestamp="1682518200150">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="591" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1682518200150" />
+    <state width="1515" height="591" key="GridCell.Tab.0.left" timestamp="1682518200150">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="591" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1682518200150" />
+    <state width="1515" height="591" key="GridCell.Tab.0.right" timestamp="1682518200150">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="591" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1682518200150" />
     <state x="280" y="161" key="IDE.errors.dialog" timestamp="1682448900079">
       <screen x="0" y="25" width="1378" height="875" />
     </state>
     <state x="280" y="161" key="IDE.errors.dialog/0.25.1378.875@0.25.1378.875" timestamp="1682448900079" />
-    <state x="325" y="126" key="Vcs.Push.Dialog.v2" timestamp="1682514718011">
+    <state x="325" y="126" key="Vcs.Push.Dialog.v2" timestamp="1682514786108">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="325" y="126" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1682514718011" />
+    <state x="325" y="126" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1682514786108" />
     <state x="292" y="159" key="Vcs.Push.Dialog.v2/0.25.1378.875@0.25.1378.875" timestamp="1682450942932" />
     <state x="394" y="148" width="597" height="548" key="find.popup" timestamp="1682449765837">
       <screen x="0" y="25" width="1378" height="875" />

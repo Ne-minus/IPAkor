@@ -65,10 +65,10 @@ class Rules():
             given = given.replace(k, '-kʰ')
         for t in to_fix_t:
             given = given.replace(t, '-tʰ')
-        for c in to_fix_k:
+        for c in to_fix_c:
             given = given.replace(c, '-cʰ')
         for p in to_fix_p:
-            given = given.replace(c, '-pʰ')
+            given = given.replace(p, '-pʰ')
 
         # нечитаемый ㅎ (с ㄹ разобрались в liquids)
         h_silent = ['m-h', 'n-h', 's-h', 's͈-h',
