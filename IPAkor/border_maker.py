@@ -90,8 +90,6 @@ class BorderMaker():
                         good_text += tr + '#'
                     else:
                         good_text += tr + ' / '
-
-
             elif entity[1] == 'Punctuation':
                 good_text = good_text.strip(" /-#") + ' / '
             elif entity[1] in bad:
