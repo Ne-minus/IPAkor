@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup(name='IPAkor',
-                 version='1.1',
+                 version='1.2',
                  packages=setuptools.find_packages(),
                  include_package_data=True,
                  classifiers=[
