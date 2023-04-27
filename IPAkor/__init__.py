@@ -1,2 +1,2 @@
-from .border_maker import BorderMaker
-from .rules import Rules
+from IPAkor.border_maker import BorderMaker
+from .transcription import Transcription

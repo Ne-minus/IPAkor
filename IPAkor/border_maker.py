@@ -5,14 +5,13 @@ import re
 import wget
 
 
-class BorderMaker():
+class BorderMaker:
 
     def __init__(self):
         self.twitter = Twitter()
 
         self.final_trans = dict()
-        self.filename = wget.download(
-            'https://raw.githubusercontent.com/Ne-minus/kor_to_phonemes/main/IPAkor/final_trans.csv')
+        self.filename = 'static/final_trans.csv'
         with open(self.filename, encoding='utf-8') as ft_file:
             spamreader = csv.reader(ft_file)
 

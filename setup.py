@@ -1,9 +1,9 @@
 import setuptools
 
 setuptools.setup(name='IPAkor',
-                 version='2.2',
-                 packages=setuptools.find_packages(),
-                 include_package_data=True,
+                 version='2.5.1',
+                 packages=['IPAkor'],
+                 package_data={'IPAkor': ['static/final_trans.csv']},
                  classifiers=[
                      'Programming Language :: Python :: 3',
                      'Operating System :: OS Independent',
