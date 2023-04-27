@@ -212,11 +212,11 @@ class Rules():
             given = s.join(chunks)
         # абсолютный конец
         for root in excepted.keys():
-            given = given.replace(root + '/', excepted[root] + '/')
+            given = given.replace(root + ' / ', excepted[root] + ' / ')
         for patchim in first.keys():
-            given = given.replace(patchim + '/', first[patchim] + '/')
+            given = given.replace(patchim + ' / ', first[patchim] + ' / ')
         for patchim in second.keys():
-            given = given.replace(patchim + '/', second[patchim] + '/')
+            given = given.replace(patchim + ' / ', second[patchim] + ' / ')
         return given
 
     def voicing_and_h(self, given):  # должно быть после патчимов
@@ -231,10 +231,11 @@ class Rules():
                     given = given.replace(v1 + tv + '-' + v2, v1 + voiced + '-' + v2)
                     given = given.replace(v1 + '-' + tv + v2, v1 + '-' + voiced + v2)
                 
-                sonors = ['l', 'm', 'n', 'ŋ']
-                for son in sonors:
-                    given = given.replace(son + '-' + tv + v1, son + '-' + voiced + v1)
-                    given = given.replace(son + '#' + tv + v1, son + '#' + voiced + v1)
+                sonors = ['l', 'm', 'n', 'ŋ']         
+                if tv != 'h':
+                    for son in sonors:
+                        given = given.replace(son + '-' + tv + v1, son + '-' + voiced + v1)
+                        given = given.replace(son + '#' + tv + v1, son + '#' + voiced + v1)
 
         return given
 
