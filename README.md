@@ -3,12 +3,16 @@ Our transcription is based on rules. You can see them in the way generative phon
 
 We believe the transcription to represent the South Korean standard language.
 
+## Phonemes
+Currently we took phonems from \[4\]. You can see how syllables correspond to transcription BEFORE any rules are applied in final_trans.csv.
+However, we are aware that these might be not the best options, so we will work on it later.
+
 ## The rules
 
 ### Position rules
-ʧ → t / _ #, ʧʧ → t / _ #, ʧʰ → t / _ #
+c → t / _ #, c͈ → t / _ #, cʰ → t / _ #
 
-h → t / _ #, s → t /_ #, ss → t / _ #
+h → t / _ #, s → t /_ #, s͈ → t / _ #
 
 h → ɦ / V _ V
 
@@ -92,6 +96,7 @@ If you have a list of words of either group, feel free to share with us.
 
 ## Sources
 We mainly used the following sources:
-1. Yu Cho, Y.  Korean Phonetics and Phonology. Oxford Research Encyclopedia of Linguistics.
-2. Касаткина И. Л., Чон Ин Сун, Пентюхова В. Е. Учебник корейского языка. М.: ООО НИЦ "Инженер" 2012.
+1. Yu Cho, Y.  Korean Phonetics and Phonology. Oxford Research Encyclopedia of Linguistics, 2022.
+2. Касаткина И. Л., Чон Ин Сун, Пентюхова В. Е. Учебник корейского языка. М.: ООО НИЦ "Инженер", 2012.
 3. Sun-Ah Jun. The Status of the Lenis Stop Voicing Rule in Korean. Theoretical Issues in Korean Linguistics, 1994.
+4. Ho-Min Sohn. The Korean Language. Cambridge Language Surveys, Cambridge University Press, 1999.
