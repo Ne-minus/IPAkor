@@ -186,30 +186,35 @@ class Rules():
             given = s.join(chunks)
 
         return given
-
-    def patchims(self, given):
+      
+    
+    def patchims(given):
         # чтение патчимов
         seps = ['-', '#']
         vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e', 'ɰi']
         excepted = {'nʌlb': 'nʌp', 'pɐlb': 'pɐp'}
-        first = {'ks': 'k', 'lg': 'k', 'nɟ': 'n', 'nh': 'n', 'lm': 'm', 'lb': 'l', 'ls': 'l', 'ltʰ': 'l', 'lh': 'l',
+        first = {'ks': 'k', 'lg': 'k', 'nɟ': 'n', 'nh': 'n', 'lm': 'm', 
+                 'lb': 'l', 'ls': 'l', 'ltʰ': 'l', 'lh': 'l',
                  'lpʰ': 'p', 'ps': 'p'}
         second = {'t͈': 't', 'tʰ': 't', 's': 't', 's͈': 't', 'cʰ': 't', 'c': 't', 'c͈': 't', 'h': 't'}
         # конец слога перед согласной
         for s in seps:
+            new_chunks = []
             chunks = given.split(s)
             for i in range(len(chunks) - 1):
+                nch = chunks[i]
                 if chunks[i + 1][0] not in vowels:
                     for root in excepted.keys():  # проверка на исключения
                         if root in chunks[i]:
-                            chunks[i] = excepted[root]
+                            nch = excepted[root]
                     for patchim in first.keys():
-                        if patchim in chunks[i][-3:]:
-                            chunks[i] = chunks[i].replace(patchim, first[patchim])
+                        if nch.endswith(patchim):
+                            nch = chunks[i].replace(patchim, first[patchim])
                     for patchim in second.keys():
-                        if patchim in chunks[i][-2:]:
-                            chunks[i] = chunks[i].replace(patchim, second[patchim])
-            given = s.join(chunks)
+                        if chunks[i].endswith(patchim):
+                            nch = chunks[i].replace(patchim, second[patchim])
+                new_chunks.append(nch)
+            given = s.join(new_chunks)
         # абсолютный конец
         for root in excepted.keys():
             given = given.replace(root + ' / ', excepted[root] + ' / ')
