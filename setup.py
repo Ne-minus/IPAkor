@@ -1,9 +1,9 @@
 import setuptools
 
 setuptools.setup(name='IPAkor',
-                 version='2.2',
+                 version='2.4',
+                 package_data={'static': ['*']},
                  packages=setuptools.find_packages(),
-                 include_package_data=True,
                  classifiers=[
                      'Programming Language :: Python :: 3',
                      'Operating System :: OS Independent',
