@@ -1,8 +1,5 @@
-# ЭТОТ КОД ДЕЛАЕТ РАЗНЫЕ ВИДЫ ГРАНИЦ МЕЖДУ СЛОГАМИ, КЛИТИКАМИ,
-# СЛОВАМИ И СИНТАГМАМИ
-# подробнее: https://colab.research.google.com/drive/1F6rf_Difpv1sYtp2X1PNsvUi3ARu0b07#scrollTo=KE5t4CsRGmzl
+# ЭТОТ КОД ДЕЛАЕТ РАЗНЫЕ ВИДЫ ГРАНИЦ МЕЖДУ СЛОГАМИ, КЛИТИКАМИ, СЛОВАМИ И СИНТАГМАМИ
 from konlpy.tag import Twitter
-from konlpy.tag import Kkma
 import csv
 import re
 import wget
@@ -12,7 +9,6 @@ class BorderMaker():
 
     def __init__(self):
         self.twitter = Twitter()
-        self.kkma = Kkma()
 
         self.final_trans = dict()
         self.filename = wget.download(
