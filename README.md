@@ -6,11 +6,11 @@ We believe the transcription to represent the South Korean standard language.
 ## The rules
 
 ### Position rules
-ʧ → t/_#, ʧʧ → t/_#, ʧʰ → t/_#
+ʧ → t / _ #, ʧʧ → t / _ #, ʧʰ → t / _ #
 
-h → t/_#, s → t/_#, ss → t/_#
+h → t / _ #, s → t /_ #, ss → t / _ #
 
-h → ɦ/ V_V
+h → ɦ / V _ V
 
 We also handled position dependent readings of ㄹ and ㅢ.
 
@@ -25,7 +25,7 @@ k → kʰ/_h, t → tʰ/_h, p → pʰ/_h
 
 t → s/_s
 
-n → l/_l, n → l/l_, t → l/_l
+n → l / _ l, n → l / l _, t → l / _ l
 
 p, pʰ, pp → m/_m; p, pʰ, pp → m/_n 
 
@@ -51,6 +51,8 @@ After obstruents, other obstruents become tense (for example: t → t͈/p_).
 We won't be listing all rules due to big number of combinanions.
 
 ### Grammar-specific rules
+Grammar analysis was made with Twitter morphological parser by https://konlpy.org .
+
 Genitive is transcripted as \[ɛ\].
 
 We prevent voicing in grammars:
@@ -58,6 +60,7 @@ We prevent voicing in grammars:
 - ㄹ거(예요/야)
 - ㅁ다 in predicates
 - 덕분에
+
 Please, let us know if any grammar that should have voicing by rules but in reality doesn't comes to your mind.
 
 ## Challenges
