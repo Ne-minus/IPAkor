@@ -15,7 +15,7 @@ class Rules():
 
     def palatalization(self, given):  # must be second!!
         to_pal = ['k', 'g', 'l', 'ɾ', 'm', 'p', 's', 'ŋ', 'cʰ', 'kʰ', 'tʰ', 'pʰ',
-                  't', 'n', 'h', 'k͈', 't͈', 'p͈', 's͈', 'c͈']
+                  't', 'n', 'h', 'k͈', 't͈', 'p͈', 's͈', 'c͈', 'ɦ']
 
         front_row = ['i', 'e']
 
