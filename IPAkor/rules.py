@@ -187,7 +187,7 @@ class Rules():
 
         return given
       
-    
+      
     def patchims(given):
         # чтение патчимов
         seps = ['-', '#']
@@ -199,22 +199,20 @@ class Rules():
         second = {'t͈': 't', 'tʰ': 't', 's': 't', 's͈': 't', 'cʰ': 't', 'c': 't', 'c͈': 't', 'h': 't'}
         # конец слога перед согласной
         for s in seps:
-            new_chunks = []
             chunks = given.split(s)
             for i in range(len(chunks) - 1):
-                nch = chunks[i]
+      
                 if chunks[i + 1][0] not in vowels:
                     for root in excepted.keys():  # проверка на исключения
                         if root in chunks[i]:
-                            nch = excepted[root]
+                            chunks[i] = excepted[root]
                     for patchim in first.keys():
-                        if nch.endswith(patchim):
-                            nch = chunks[i].replace(patchim, first[patchim])
+                        if chunks[i].endswith(patchim):
+                            chunks[i] = chunks[i].replace(patchim, first[patchim])
                     for patchim in second.keys():
                         if chunks[i].endswith(patchim):
-                            nch = chunks[i].replace(patchim, second[patchim])
-                new_chunks.append(nch)
-            given = s.join(new_chunks)
+                            chunks[i] = chunks[i].replace(patchim, second[patchim])
+            given = s.join(chunks)
         # абсолютный конец
         for root in excepted.keys():
             given = given.replace(root + ' / ', excepted[root] + ' / ')
@@ -223,6 +221,7 @@ class Rules():
         for patchim in second.keys():
             given = given.replace(patchim + ' / ', second[patchim] + ' / ')
         return given
+
 
     def voicing_and_h(self, given):  # должно быть после патчимов
      # фонетические переходы в позиции между гласными
