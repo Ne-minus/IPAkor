@@ -144,7 +144,7 @@ class Rules():
 
         return given
 
-    def coronal_asim(self, given):
+    def coronal_assim(self, given):
         # ассимиляция переднеязычных
 
         seps = ['-', '#']
@@ -220,7 +220,7 @@ class Rules():
         return given
 
     def voicing_and_h(self, given):  # должно быть после патчимов
-        # фонетические переходы в позиции между гласными
+     # фонетические переходы в позиции между гласными
         vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e', 'ɰi']
         to_voice = {'c': 'ɟ', 'k': 'g', 't': 'd', 'p': 'b', 'h': 'ɦ',
                     'cʲ': 'ɟʲ', 'kʲ': 'gʲ', 'tʲ': 'dʲ', 'pʲ': 'bʲ'}
@@ -230,14 +230,11 @@ class Rules():
                 for v2 in vowels:
                     given = given.replace(v1 + tv + '-' + v2, v1 + voiced + '-' + v2)
                     given = given.replace(v1 + '-' + tv + v2, v1 + '-' + voiced + v2)
-            given = given.replace('n' + '-' + tv, 'n' + '-' + voiced)
-            given = given.replace('m' + '-' + tv, 'm' + '-' + voiced)
-            given = given.replace('l' + '-' + tv, 'l' + '-' + voiced)
-            given = given.replace('ŋ' + '-' + tv, 'ŋ' + '-' + voiced)
-            given = given.replace('n' + '#' + tv, 'n' + '#' + voiced)
-            given = given.replace('m' + '#' + tv, 'm' + '#' + voiced)
-            given = given.replace('l' + '#' + tv, 'l' + '#' + voiced)
-            given = given.replace('ŋ' + '#' + tv, 'ŋ' + '#' + voiced)
+                
+                sonors = ['l', 'm', 'n', 'ŋ']
+                for son in sonors:
+                    given = given.replace(son + '-' + tv + v1, son + '-' + voiced + v1)
+                    given = given.replace(son + '#' + tv + v1, son + '#' + voiced + v1)
 
         return given
 
