@@ -285,7 +285,7 @@ class Transcription:
         return given
       
       
-    def patchims(given):
+    def patchims(self, given):
         # чтение патчимов
         seps = ['-', '#']
         vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e', 'ɰi']
@@ -361,7 +361,7 @@ class Transcription:
         given = self.stop_assim(given)
         given = self.spirantization(given)
         given = self.sonor_assim(given)
-        given = self.coronal_asim(given)
+        given = self.coronal_assim(given)
         given = self.patchims(given)
         given = self.voicing_and_h(given)
         given = self.pot(given)

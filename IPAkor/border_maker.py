@@ -1,6 +1,8 @@
 # ЭТОТ КОД ДЕЛАЕТ РАЗНЫЕ ВИДЫ ГРАНИЦ МЕЖДУ СЛОГАМИ, КЛИТИКАМИ, СЛОВАМИ И СИНТАГМАМИ
 from konlpy.tag import Twitter
+from konlpy.tag import Kkma
 import csv
+import os
 import re
 import wget
 
@@ -9,10 +11,12 @@ class BorderMaker:
 
     def __init__(self):
         self.twitter = Twitter()
+        self.kkma = Kkma()
 
         self.final_trans = dict()
-        self.filename = 'static/final_trans.csv'
-        with open(self.filename, encoding='utf-8') as ft_file:
+        self.path_to_module = os.path.dirname(__file__)
+        self.weight_path = os.path.join(self.path_to_module, "static", "final_trans.csv")
+        with open(self.weight_path, 'r') as ft_file:
             spamreader = csv.reader(ft_file)
 
             for row in spamreader:
@@ -27,7 +31,7 @@ class BorderMaker:
     def separator(self, text: str) -> str:
         syll_dict = dict()
 
-        with open(self.filename) as csvfile:
+        with open(self.weight_path, 'r') as csvfile:
             spamreader = csv.reader(csvfile)
             sylls = list(spamreader)
             for s in sylls:
@@ -42,7 +46,6 @@ class BorderMaker:
                'Hashtag', 'ScreenName', 'Email', 'URL')
 
         for entity in twit_morph:
-            print(entity)
             if entity[1] in lil_morphs:
                 if entity[0] == '의':
                     good_text = good_text.strip(" /-#") + '-ɛ#'  # генитив
