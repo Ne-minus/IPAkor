@@ -1,4 +1,7 @@
 # How to use IPAkor
+
+Authors: Alina Lobanova, Ekaterina Neminova, Varvara Vasilyeva, Alyona Zenina.
+
 This is how our Python library IPAkor works:
 
 ```
@@ -111,5 +114,4 @@ We mainly used the following sources:
 2. Касаткина И. Л., Чон Ин Сун, Пентюхова В. Е. Учебник корейского языка. М.: ООО НИЦ "Инженер", 2012.
 3. Sun-Ah Jun. The Status of the Lenis Stop Voicing Rule in Korean. Theoretical Issues in Korean Linguistics, 1994.
 4. Ho-Min Sohn. The Korean Language. Cambridge Language Surveys, Cambridge University Press, 1999.
-
 
