@@ -110,9 +110,12 @@ class Transcription:
         given = given.replace('tʌk-pun-e', 't͈ʌk-pun-e')
         return given
 
+    
     def palatalization(self, given):  # must be second!!
-        to_pal = ['k', 'g', 'l', 'ɾ', 'm', 'p', 's', 'ŋ', 'cʰ', 'kʰ', 'tʰ', 'pʰ',
-                  't', 'n', 'h', 'k͈', 't͈', 'p͈', 's͈', 'c͈', 'ɦ']
+        to_pal = ['k', 'g', 'l', 'ɾ', 'm', 'p', 'ŋ', 'kʰ', 'pʰ',
+                  't', 'n', 'h', 'k͈', 't͈', 'p͈', 'ɦ']
+
+        st_to_pal = {'s': 'ɕ', 's͈': 'ɕ͈'}
 
         front_row = ['i', 'e']
 
@@ -123,8 +126,16 @@ class Transcription:
                 given = given.replace(tp + fr, tp + 'ʲ' + fr)
 
             # йотированные гласные
-            given = given.replace(tp + '-j', tp + 'ʲ-')
+            given = given.replace(tp + 'j', tp + 'ʲ') 
 
+        for s in st_to_pal:
+            given = given.replace(s + '-i', st_to_pal[s] + '-i')
+            given = given.replace(s + 'i', st_to_pal[s] + 'i')
+            given = given.replace(s + 'j', st_to_pal[s])
+            
+        given = given.replace('tʰ-i', 't͡ɕi')
+        given = given.replace('tʰi', 'tʰʲi')
+        
         return given
 
     def yi(self, given):
@@ -285,9 +296,9 @@ class Transcription:
         return given
       
       
-    def patchims(given):
+    def patchims(self, given):
         # чтение патчимов
-        seps = ['-', '#']
+        seps = ['-']
         vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e', 'ɰi']
         excepted = {'nʌlb': 'nʌp', 'pɐlb': 'pɐp'}
         first = {'ks': 'k', 'lg': 'k', 'nɟ': 'n', 'nh': 'n', 'lm': 'm', 
@@ -361,7 +372,7 @@ class Transcription:
         given = self.stop_assim(given)
         given = self.spirantization(given)
         given = self.sonor_assim(given)
-        given = self.coronal_asim(given)
+        given = self.coronal_assim(given)
         given = self.patchims(given)
         given = self.voicing_and_h(given)
         given = self.pot(given)

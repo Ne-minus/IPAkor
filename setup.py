@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup(name='IPAkor',
-                 version='2.5.1',
+                 version='2.5.4',
                  packages=['IPAkor'],
                  package_data={'IPAkor': ['static/final_trans.csv']},
                  classifiers=[
