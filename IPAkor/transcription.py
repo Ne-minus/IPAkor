@@ -5,6 +5,7 @@ import csv
 import wget
 import os
 
+
 class BorderMaker:
 
     def __init__(self):
@@ -97,7 +98,6 @@ class BorderMaker:
         return good_text.strip(' /#') + ' / '
 
 
-
 class Transcription:
 
     def __init__(self):
@@ -108,12 +108,12 @@ class Transcription:
 
         # 덕분에
         given = given.replace('tʌk-pun-e', 't͈ʌk-pun-e')
+        given = given.replace('kɐtʰ-ɐ', 'k͈ɐtʰ-ɐ')
         return given
 
-    
     def palatalization(self, given):  # must be second!!
-        to_pal = ['k', 'g', 'l', 'ɾ', 'm', 'p', 'ŋ', 'kʰ', 'pʰ',
-                  't', 'n', 'h', 'k͈', 't͈', 'p͈', 'ɦ']
+        to_pal = ['k', 'g', 'l', 'p', 'ŋ', 'kʰ',
+                  'pʰ', 'h', 'k͈', 'p͈', 'ɦ']
 
         st_to_pal = {'s': 'ɕ', 's͈': 'ɕ͈'}
 
@@ -126,16 +126,16 @@ class Transcription:
                 given = given.replace(tp + fr, tp + 'ʲ' + fr)
 
             # йотированные гласные
-            given = given.replace(tp + 'j', tp + 'ʲ') 
+            given = given.replace(tp + 'j', tp + 'ʲ')
 
         for s in st_to_pal:
             given = given.replace(s + '-i', st_to_pal[s] + '-i')
             given = given.replace(s + 'i', st_to_pal[s] + 'i')
             given = given.replace(s + 'j', st_to_pal[s])
-            
+
         given = given.replace('tʰ-i', 't͡ɕi')
         given = given.replace('tʰi', 'tʰʲi')
-        
+
         return given
 
     def yi(self, given):
@@ -223,8 +223,10 @@ class Transcription:
         for s in seps:
             chunks = given.split(s)
             for i in range(len(chunks) - 1):
-                if chunks[i][-1] in ['t', 'tʰ', 't͈'] and chunks[i + 1][0] in ['s', 's͈']:
-                    chunks[i] = chunks[i][:-1] + 's'
+                fin = re.search(r'tʰ|t͈|t', chunks[i][-2:])
+                init = re.search(r's͈|s', chunks[i + 1][:2])
+                if fin is not None and init is not None:
+                    chunks[i] = chunks[i][:-len(fin.group(0))] + 's'
 
             given = s.join(chunks)
 
@@ -259,49 +261,55 @@ class Transcription:
         coronals = ['t', 't͈', 'tʰ', 's', 's͈']
 
         labial = ['m', 'p', 'pʰ', 'p͈']
+
         post_alveolar = ['cʰ', 'c', 'c͈']
         velars = ['k', 'kʰ', 'k͈', 'g']
         for s in seps:
             chunks = given.split(s)
             for i in range(len(chunks) - 1):
-                # before labial
-                if chunks[i][-1] in coronals and chunks[i + 1][0] in labial and chunks[i + 1][0] != 'm':
-                    chunks[i] = chunks[i][:-1] + 'p'
 
-                elif chunks[i][-1] == 'n' and chunks[i + 1][0] in labial and chunks[i + 1][0] != 'm':
-                    chunks[i] = chunks[i][:-1] + 'm'
+                if chunks[i][-2:] in coronals or chunks[i][-2:] in labial or chunks[i][-2:] in post_alveolar:
+                    j = -2
+                else:
+                    j = -1
+
+                # before labial
+                if chunks[i][j] in coronals and chunks[i + 1][0] in labial and chunks[i + 1][0] != 'm':
+                    chunks[i] = chunks[i][:j] + 'p'
+
+                elif chunks[i][j] == 'n' and chunks[i + 1][0] in labial and chunks[i + 1][0] != 'm':
+                    chunks[i] = chunks[i][:j] + 'm'
 
                 # before velars
-                elif chunks[i][-1] in coronals and chunks[i + 1][0] in velars:
-                    chunks[i] = chunks[i][:-1] + 'k'
+                elif chunks[i][j] in coronals and chunks[i + 1][0] in velars:
+                    chunks[i] = chunks[i][:j] + 'k'
 
-                elif chunks[i][-1] == 'n' and chunks[i + 1][0] in velars:
-                    chunks[i] = chunks[i][:-1] + 'ŋ'
+                elif chunks[i][j] == 'n' and chunks[i + 1][0] in velars:
+                    chunks[i] = chunks[i][:j] + 'ŋ'
 
                 # before post_alveolar
-                elif chunks[i][-1] in coronals and chunks[i + 1][0] in post_alveolar:
-                    chunks[i] = chunks[i][:-1] + 'c'
+                elif chunks[i][j] in coronals and chunks[i + 1][0] in post_alveolar:
+                    chunks[i] = chunks[i][:j] + 'c'
 
                 # labials and post alveolars assimilate to velars
-                elif chunks[i][-1] in labial and chunks[i + 1][0] in velars and chunks[i][-1] != 'm':
-                    chunks[i] = chunks[i][:-1] + 'k'
+                elif chunks[i][j] in labial and chunks[i + 1][0] in velars and chunks[i][-1] != 'm':
+                    chunks[i] = chunks[i][:j] + 'k'
 
-                elif chunks[i][-1] in labial and chunks[i + 1][0] in velars and chunks[i][-1] == 'm':
-                    chunks[i] = chunks[i][:-1] + 'ŋ'
+                elif chunks[i][j] in labial and chunks[i + 1][0] in velars and chunks[i][-1] == 'm':
+                    chunks[i] = chunks[i][:j] + 'ŋ'
 
-                elif chunks[i][-1] in post_alveolar and chunks[i + 1][0] in velars:
-                    chunks[i] = chunks[i][:-1] + 'k'
+                elif chunks[i][j] in post_alveolar and chunks[i + 1][0] in velars:
+                    chunks[i] = chunks[i][:j] + 'k'
             given = s.join(chunks)
 
         return given
-      
-      
+
     def patchims(self, given):
         # чтение патчимов
-        seps = ['-']
+        seps = ['#']
         vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e', 'ɰi']
         excepted = {'nʌlb': 'nʌp', 'pɐlb': 'pɐp'}
-        first = {'ks': 'k', 'lg': 'k', 'nɟ': 'n', 'nh': 'n', 'lm': 'm', 
+        first = {'ks': 'k', 'lg': 'k', 'nɟ': 'n', 'nh': 'n', 'lm': 'm',
                  'lb': 'l', 'ls': 'l', 'ltʰ': 'l', 'lh': 'l',
                  'lpʰ': 'p', 'ps': 'p'}
         second = {'t͈': 't', 'tʰ': 't', 's': 't', 's͈': 't', 'cʰ': 't', 'c': 't', 'c͈': 't', 'h': 't'}
@@ -309,7 +317,7 @@ class Transcription:
         for s in seps:
             chunks = given.split(s)
             for i in range(len(chunks) - 1):
-      
+
                 if chunks[i + 1][0] not in vowels:
                     for root in excepted.keys():  # проверка на исключения
                         if root in chunks[i]:
@@ -330,11 +338,10 @@ class Transcription:
             given = given.replace(patchim + ' / ', second[patchim] + ' / ')
         return given
 
-
     def voicing_and_h(self, given):  # должно быть после патчимов
-     # фонетические переходы в позиции между гласными
+        # фонетические переходы в позиции между гласными
         vowels = ['ɐ', 'ʌ', 'o', 'ɨ', 'u', 'i', 'ɛ', 'e', 'ɰi']
-        to_voice = {'c': 'ɟ', 'k': 'g', 't': 'd', 'p': 'b', 'h': 'ɦ',
+        to_voice = {'c': 'ɟ', 't͡ɕ': 'ɟ', 'k': 'g', 't': 'd', 'p': 'b', 'h': 'ɦ',
                     'cʲ': 'ɟʲ', 'kʲ': 'gʲ', 'tʲ': 'dʲ', 'pʲ': 'bʲ'}
         for tv in to_voice.keys():
             voiced = to_voice[tv]
@@ -342,8 +349,8 @@ class Transcription:
                 for v2 in vowels:
                     given = given.replace(v1 + tv + '-' + v2, v1 + voiced + '-' + v2)
                     given = given.replace(v1 + '-' + tv + v2, v1 + '-' + voiced + v2)
-                
-                sonors = ['l', 'm', 'n', 'ŋ']         
+
+                sonors = ['l', 'm', 'n', 'ŋ']
                 if tv != 'h':
                     for son in sonors:
                         given = given.replace(son + '-' + tv + v1, son + '-' + voiced + v1)
@@ -354,12 +361,21 @@ class Transcription:
     def pot(self, given):  # должно быть в самом конце
         obstr = ['k', 'p', 'c', 'cʰ', 'kʰ', 'tʰ',
                  'pʰ', 't', 'k͈', 't͈', 'p͈', 'c͈']
+        dot = '͈'
         for obs in obstr:
-            given = given.replace(obs + '-k', obs + '-k͈')
-            given = given.replace(obs + '-t', obs + '-t͈')
-            given = given.replace(obs + '-p', obs + '-p͈')
-            given = given.replace(obs + '-c', obs + '-c͈')
+            given = given.replace(obs + f'-k(?!{dot})', obs + '-k͈')
+            given = given.replace(obs + f'-t(?!{dot})', obs + '-t͈')
+            given = given.replace(obs + f'-p(?!{dot})', obs + '-p͈')
+            given = given.replace(obs + f'-c(?!{dot})', obs + '-c͈')
 
+        return given
+    def c_to_tc(self, given):
+        given = given.replace('cʰ', 't͡ɕʰ')
+        given = given.replace('c͈', 't͡ɕ͈')
+        given = given.replace('c', 't͡ɕ')
+        given = given.replace('t͡ɕʰj', 't͡ɕʰ')
+        given = given.replace('t͡ɕj', 't͡ɕ')
+        given = given.replace('t͡ɕ͈j', 't͡ɕ͈')
         return given
 
     def transcribe(self, given):
@@ -374,6 +390,8 @@ class Transcription:
         given = self.sonor_assim(given)
         given = self.coronal_assim(given)
         given = self.patchims(given)
+        given = self.spirantization(given)
         given = self.voicing_and_h(given)
         given = self.pot(given)
+        given = self.c_to_tc(given)
         return given
