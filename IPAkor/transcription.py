@@ -390,7 +390,6 @@ class Transcription:
         given = self.sonor_assim(given)
         given = self.coronal_assim(given)
         given = self.patchims(given)
-        given = self.spirantization(given)
         given = self.voicing_and_h(given)
         given = self.pot(given)
         given = self.c_to_tc(given)
