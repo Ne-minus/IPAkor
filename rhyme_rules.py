@@ -105,7 +105,7 @@ class Rhymer:
             if v1.descriptors[-1] == v2.descriptors[-1]:
                 diff_on_pos = abs(self.dict_pos[v1.descriptors[2]] - self.dict_pos[v2.descriptors[2]])
                 diff_on_raise = abs(self.dict_raise[v1.descriptors[1]] - self.dict_raise[v2.descriptors[1]])
-                if diff_on_pos+diff_on_raise <= 2:
+                if math.sqrt(diff_on_pos**2 + diff_on_raise**2) < 1.5:
                     return 'close to_'
                 else:
                     return 'need to clarify_'
