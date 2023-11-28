@@ -12,7 +12,21 @@ from phonemizer import phonemize
 from phonemizer.separator import Separator
 
 
-def kor_to_ipa(text, transcr):
+def kor_to_ipa(text, transcr) -> str:
+    """
+    Turns Korean alphabet into IPA
+
+    Args:
+        text: str
+            Korean text
+        transcr:
+            Transcription class
+
+    Returns:
+        Transcription with rules in IPA tradition
+
+    """
+
     text = transcr.transcribe(text)
     text = re.sub(r'[-/\s#\.,]', '', text)
 
@@ -20,9 +34,33 @@ def kor_to_ipa(text, transcr):
 
 
 def remove_non_ascii(text):
+    """
+    Removes non ascii elements.
+    Necessary for string that contain both English and Korean symbols.
+
+    Args:
+        text: str
+           Text from the English part of dataset.
+
+    Returns:
+        Clean version (if a string previously included Korean symbols)
+    """
+
     return re.sub(r'[^\x00-\x7F]', ' ', text)
 
-def eng_to_ipa(text):
+
+def eng_to_ipa(text) -> str:
+    """
+    Converts English to IPA
+
+    Args:
+        text: str
+            String in English
+
+    Returns:
+        IPA string
+    """
+
     text = remove_non_ascii(text)
     # to add stress marks use
     # with_stress=True as a parameter of phomemize
@@ -40,6 +78,17 @@ def eng_to_ipa(text):
 
 
 def get_last_syll(s_uni):
+    """
+            Finds last syllable in the string&
+
+            Args:
+                string: str
+                    transcribed string in Unicode
+
+            Returns: IPAString
+                last syllable -- CV(C*)
+    """
+
     desired = ['diacritic', 'suprasegmental']
     s_ipa = IPAString(unicode_string=s_uni)
     ending = IPAString()
@@ -60,17 +109,14 @@ def get_last_syll(s_uni):
 
 
 def get_stats(text):
-    rhyme = ''
     s_ipa = IPAString(unicode_string=text)
-    # for i in s_ipa:
-    #     if i.is_vowel:
-    #         rhyme += f'{str(i)}_'
-    #     elif i.is_consonant:
-    #         rhyme += f'{str(i.name.split()[-2])}_'
-        # else:
-        #     rhyme += f'{str(i.name.split()[0])} '
     return s_ipa.vowels
 
+
+def get_vowel_type(vowel):
+    vowel = vowel[0]
+    vowel = ' '.join(vowel.name.split()[:3])
+    return vowel
 
 if __name__ == '__main__':
     df = pd.read_csv('kor_eng.csv')
@@ -81,4 +127,8 @@ if __name__ == '__main__':
     df['eng_rhyme_syll'] = df.eng_transcribed.apply(get_last_syll)
     df['rhyme_type_kor'] = df.kor_rhyme_syll.apply(get_stats)
     df['rhyme_type_eng'] = df.eng_rhyme_syll.apply(get_stats)
-    df.to_csv('processed.csv')
+    df['vowel_type_kor'] = df.rhyme_type_kor.apply(get_vowel_type)
+    df['vowel_type_eng'] = df.rhyme_type_eng.apply(get_vowel_type)
+    df[['rise_kor', 'placement_kor', 'roundness_kor']] = df.vowel_type_kor.str.split(expand=True)
+    df[['rise_eng', 'placement_eng', 'roundness_eng']] = df.vowel_type_eng.str.split(expand=True)
+    df.to_csv('processed_new.csv')
