@@ -1,16 +1,31 @@
+### IPAkor is a library for automatic translation from Korean and English to  IPA.
+Authors: Alina Lobanova, Ekaterina Neminova, Varvara Vasilyeva, Alyona Zenina.  
+
 # How to use IPAkor
+If you do not have **espeak** installed on your system, please, do it beforehand using:  
 
-Authors: Alina Lobanova, Ekaterina Neminova, Varvara Vasilyeva, Alyona Zenina.
-
-This is how our Python library IPAkor works:
-
+**Linux**
+```python
+apt-get install espeak-ng
+pip install IPAkor
 ```
-! pip install IPAkor
-import IPAkor
-transcr = IPAkor.Transcription()
-print(transcr.transcribe('이해할수 있어요? 설악산의 높은 뭐예요?'))
+**Mac OS**
+```python
+brew install espeak-ng
+pip install IPAkor
 ```
-You will get the following result: i-ɦɛ#hɐl-su / is͈-ʌ-jo / sʌɾ-ɐk-sɐn-ɛ#nopʰ-ɨn#mwʌ-je-jo / 
+**Windows**  
+Refer to the instructions [here](https://github.com/espeak-ng/espeak-ng/blob/master/docs/guide.md#windows)  
+
+
+Now you are ready to go!☺️
+```python
+from IPAkor.transcription import UniTranscript
+transcr = UniTranscript()
+print(transcr.transcribator('지금 하늘 구름 색은 tropical, yeah'))
+```
+  
+You will get the following result: **t͡ɕigɨm hɐnɨl guɾɨm sɛk ɨn tɹˈɑːpɪkəl  jˈɛh**
 
 # Korean IPA automatic transcription
 Our transcription is based on rules. You can see them in the way generative phonology would prescribe them below.
@@ -114,4 +129,3 @@ We mainly used the following sources:
 2. Касаткина И. Л., Чон Ин Сун, Пентюхова В. Е. Учебник корейского языка. М.: ООО НИЦ "Инженер", 2012.
 3. Sun-Ah Jun. The Status of the Lenis Stop Voicing Rule in Korean. Theoretical Issues in Korean Linguistics, 1994.
 4. Ho-Min Sohn. The Korean Language. Cambridge Language Surveys, Cambridge University Press, 1999.
-
