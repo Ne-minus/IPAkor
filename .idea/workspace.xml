@@ -20,16 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfcd4afa-eadd-4e64-9e7e-dc7162dc08ca" name="Default Changelist" comment="ipapy added">
-      <change afterPath="$PROJECT_DIR$/kor_eng.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rhyme_rules.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stats_on_rhymes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kor_to_phonemes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kor_to_phonemes.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipapy/ipastring.py" beforeDir="false" afterPath="$PROJECT_DIR$/ipapy/ipastring.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stats.py" beforeDir="false" afterPath="$PROJECT_DIR$/stats.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rhyme_rules.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rhyme_rules_new.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,49 +66,7 @@
       <recent name="$PROJECT_DIR$/IPAkor/static" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.rhyme_rules">
-    <configuration name="ipastring" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="kor_to_phonemes" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ipapy" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ipapy/ipastring.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="rhyme_rules" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="kor_to_phonemes" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rhyme_rules.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.transcription">
     <configuration name="stats" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="kor_to_phonemes" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -179,13 +130,55 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="transcription" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="kor_to_phonemes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/IPAkor" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/IPAkor/transcription.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="unified" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="kor_to_phonemes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/IPAkor" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/IPAkor/unified.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.rhyme_rules" />
+        <item itemvalue="Python.transcription" />
+        <item itemvalue="Python.unified" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.stats_on_rhymes" />
         <item itemvalue="Python.stats" />
-        <item itemvalue="Python.ipastring" />
       </list>
     </recent_temporary>
   </component>
@@ -240,7 +233,35 @@
       <option name="project" value="LOCAL" />
       <updated>1699545430618</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add rules, changed ipapy">
+      <created>1701182410304</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701182410305</updated>
+    </task>
+    <task id="LOCAL-00008" summary="changed vowel distance computation">
+      <created>1701183163069</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701183163069</updated>
+    </task>
+    <task id="LOCAL-00009" summary="changed vowel distance computation">
+      <created>1701262827034</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701262827034</updated>
+    </task>
+    <task id="LOCAL-00010" summary="minor changes">
+      <created>1701282720213</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701282720214</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -259,54 +280,76 @@
     <MESSAGE value="added patchims" />
     <MESSAGE value="added clever architecture" />
     <MESSAGE value="ipapy added" />
-    <option name="LAST_COMMIT_MESSAGE" value="ipapy added" />
+    <MESSAGE value="Add rules, changed ipapy" />
+    <MESSAGE value="changed vowel distance computation" />
+    <MESSAGE value="minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="217" y="25" width="1000" height="875" key="#Intentions" timestamp="1699606463609">
       <screen x="0" y="25" width="1380" height="875" />
     </state>
     <state x="217" y="25" width="1000" height="875" key="#Intentions/0.25.1380.875@0.25.1380.875" timestamp="1699606463609" />
-    <state width="1292" height="216" key="GridCell.Tab.0.bottom" timestamp="1701180176523">
-      <screen x="0" y="25" width="1377" height="875" />
+    <state x="390" y="155" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1701282866911">
+      <screen x="0" y="25" width="1380" height="875" />
     </state>
-    <state width="1292" height="216" key="GridCell.Tab.0.bottom/0.25.1377.875@0.25.1377.875" timestamp="1701180176523" />
-    <state width="1292" height="3" key="GridCell.Tab.0.bottom/0.25.1380.875@0.25.1380.875" timestamp="1699903208971" />
+    <state x="390" y="155" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1380.875@0.25.1380.875" timestamp="1701282866911" />
+    <state x="155" y="99" key="DiffContextDialog" timestamp="1701260820168">
+      <screen x="0" y="25" width="1378" height="875" />
+    </state>
+    <state x="155" y="99" key="DiffContextDialog/0.25.1378.875@0.25.1378.875" timestamp="1701260820168" />
+    <state width="1292" height="105" key="GridCell.Tab.0.bottom" timestamp="1701282780363">
+      <screen x="0" y="25" width="1380" height="875" />
+    </state>
+    <state width="1292" height="216" key="GridCell.Tab.0.bottom/0.25.1377.875@0.25.1377.875" timestamp="1701182905844" />
+    <state width="1292" height="332" key="GridCell.Tab.0.bottom/0.25.1378.875@0.25.1378.875" timestamp="1701275447141" />
+    <state width="1292" height="105" key="GridCell.Tab.0.bottom/0.25.1380.875@0.25.1380.875" timestamp="1701282780363" />
     <state width="1292" height="403" key="GridCell.Tab.0.bottom/0.25.1382.875@0.25.1382.875" timestamp="1699608113291" />
-    <state width="1292" height="216" key="GridCell.Tab.0.center" timestamp="1701180176523">
-      <screen x="0" y="25" width="1377" height="875" />
+    <state width="1292" height="105" key="GridCell.Tab.0.center" timestamp="1701282780360">
+      <screen x="0" y="25" width="1380" height="875" />
     </state>
-    <state width="1292" height="216" key="GridCell.Tab.0.center/0.25.1377.875@0.25.1377.875" timestamp="1701180176523" />
-    <state width="1292" height="3" key="GridCell.Tab.0.center/0.25.1380.875@0.25.1380.875" timestamp="1699903208968" />
+    <state width="1292" height="216" key="GridCell.Tab.0.center/0.25.1377.875@0.25.1377.875" timestamp="1701182905843" />
+    <state width="1292" height="332" key="GridCell.Tab.0.center/0.25.1378.875@0.25.1378.875" timestamp="1701275447140" />
+    <state width="1292" height="105" key="GridCell.Tab.0.center/0.25.1380.875@0.25.1380.875" timestamp="1701282780360" />
     <state width="1292" height="403" key="GridCell.Tab.0.center/0.25.1382.875@0.25.1382.875" timestamp="1699608113289" />
-    <state width="1292" height="216" key="GridCell.Tab.0.left" timestamp="1701180176522">
-      <screen x="0" y="25" width="1377" height="875" />
+    <state width="1292" height="105" key="GridCell.Tab.0.left" timestamp="1701282780359">
+      <screen x="0" y="25" width="1380" height="875" />
     </state>
-    <state width="1292" height="216" key="GridCell.Tab.0.left/0.25.1377.875@0.25.1377.875" timestamp="1701180176522" />
-    <state width="1292" height="3" key="GridCell.Tab.0.left/0.25.1380.875@0.25.1380.875" timestamp="1699903208966" />
+    <state width="1292" height="216" key="GridCell.Tab.0.left/0.25.1377.875@0.25.1377.875" timestamp="1701182905842" />
+    <state width="1292" height="332" key="GridCell.Tab.0.left/0.25.1378.875@0.25.1378.875" timestamp="1701275447139" />
+    <state width="1292" height="105" key="GridCell.Tab.0.left/0.25.1380.875@0.25.1380.875" timestamp="1701282780359" />
     <state width="1292" height="403" key="GridCell.Tab.0.left/0.25.1382.875@0.25.1382.875" timestamp="1699608113288" />
-    <state width="1292" height="216" key="GridCell.Tab.0.right" timestamp="1701180176523">
-      <screen x="0" y="25" width="1377" height="875" />
+    <state width="1292" height="105" key="GridCell.Tab.0.right" timestamp="1701282780360">
+      <screen x="0" y="25" width="1380" height="875" />
     </state>
-    <state width="1292" height="216" key="GridCell.Tab.0.right/0.25.1377.875@0.25.1377.875" timestamp="1701180176523" />
-    <state width="1292" height="3" key="GridCell.Tab.0.right/0.25.1380.875@0.25.1380.875" timestamp="1699903208969" />
+    <state width="1292" height="216" key="GridCell.Tab.0.right/0.25.1377.875@0.25.1377.875" timestamp="1701182905843" />
+    <state width="1292" height="332" key="GridCell.Tab.0.right/0.25.1378.875@0.25.1378.875" timestamp="1701275447140" />
+    <state width="1292" height="105" key="GridCell.Tab.0.right/0.25.1380.875@0.25.1380.875" timestamp="1701282780360" />
     <state width="1292" height="403" key="GridCell.Tab.0.right/0.25.1382.875@0.25.1382.875" timestamp="1699608113290" />
     <state x="113" y="25" key="SettingsEditor" timestamp="1701166371695">
       <screen x="0" y="25" width="1377" height="875" />
     </state>
     <state x="113" y="25" key="SettingsEditor/0.25.1377.875@0.25.1377.875" timestamp="1701166371695" />
     <state x="113" y="25" key="SettingsEditor/0.25.1380.875@0.25.1380.875" timestamp="1699877677420" />
-    <state x="217" y="136" key="Vcs.Push.Dialog.v2" timestamp="1699545438637">
+    <state x="217" y="136" key="Vcs.Push.Dialog.v2" timestamp="1701282723417">
       <screen x="0" y="25" width="1380" height="875" />
     </state>
-    <state x="217" y="136" key="Vcs.Push.Dialog.v2/0.25.1377.875@0.25.1377.875" timestamp="1699296135751" />
-    <state x="217" y="136" key="Vcs.Push.Dialog.v2/0.25.1380.875@0.25.1380.875" timestamp="1699545438637" />
-    <state x="501" y="363" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1699874462079">
+    <state x="217" y="136" key="Vcs.Push.Dialog.v2/0.25.1377.875@0.25.1377.875" timestamp="1701183164939" />
+    <state x="217" y="136" key="Vcs.Push.Dialog.v2/0.25.1378.875@0.25.1378.875" timestamp="1701262837163" />
+    <state x="217" y="136" key="Vcs.Push.Dialog.v2/0.25.1380.875@0.25.1380.875" timestamp="1701282723417" />
+    <state x="501" y="363" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1701282611525">
       <screen x="0" y="25" width="1380" height="875" />
     </state>
-    <state x="501" y="363" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1380.875@0.25.1380.875" timestamp="1699874462079" />
-    <state x="467" y="114" key="git4idea.branch.GitSmartOperationDialog" timestamp="1699874428424">
-      <screen x="0" y="25" width="1380" height="875" />
+    <state x="500" y="363" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1378.875@0.25.1378.875" timestamp="1701264460286" />
+    <state x="501" y="363" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1380.875@0.25.1380.875" timestamp="1701282611525" />
+    <state x="466" y="114" key="git4idea.branch.GitSmartOperationDialog" timestamp="1701260836318">
+      <screen x="0" y="25" width="1378" height="875" />
     </state>
+    <state x="466" y="114" key="git4idea.branch.GitSmartOperationDialog/0.25.1378.875@0.25.1378.875" timestamp="1701260836318" />
     <state x="467" y="114" key="git4idea.branch.GitSmartOperationDialog/0.25.1380.875@0.25.1380.875" timestamp="1699874428424" />
+    <state x="442" y="364" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1701282851645">
+      <screen x="0" y="25" width="1380" height="875" />
+    </state>
+    <state x="442" y="364" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.25.1380.875@0.25.1380.875" timestamp="1701282851645" />
   </component>
 </project>
