@@ -13,7 +13,7 @@ pip install IPAkor
 brew install espeak-ng
 pip install IPAkor
 ```
-**Windows**  
+#### Windows 
 Refer to the instructions [here](https://github.com/espeak-ng/espeak-ng/blob/master/docs/guide.md#windows)  
 
 
