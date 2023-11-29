@@ -18,15 +18,16 @@ pip install IPAkor
 brew install espeak-ng
 pip install IPAkor
 ```
+**Windows**  
+Refer to the instructions [here](https://github.com/espeak-ng/espeak-ng/blob/master/docs/guide.md#windows)  
+
+
 Now you are ready to go!☺️
 ```python
 import IPAkor
 transcr = IPAkor.Transcription()
 print(transcr.transcribe('이해할수 있어요? 설악산의 높은 뭐예요?'))
 ```
-
-**Windows**  
-Refer to the instructions [here](https://github.com/espeak-ng/espeak-ng/blob/master/docs/guide.md#windows)  
 
 You will get the following result: i-ɦɛ#hɐl-su / is͈-ʌ-jo / sʌɾ-ɐk-sɐn-ɛ#nopʰ-ɨn#mwʌ-je-jo / 
 
