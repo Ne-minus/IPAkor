@@ -20,12 +20,12 @@ Refer to the instructions [here](https://github.com/espeak-ng/espeak-ng/blob/mas
 
 Now you are ready to go!☺️
 ```python
-import IPAkor
-transcr = IPAkor.Transcription()
-print(transcr.transcribe('이해할수 있어요? 설악산의 높은 뭐예요?'))
+from IPAkor.transcription import UniTranscript
+transcr = UniTranscript()
+print(transcr.transcribator('지금 하늘 구름 색은 tropical, yeah'))
 ```
   
-You will get the following result: i-ɦɛ#hɐl-su / is͈-ʌ-jo / sʌɾ-ɐk-sɐn-ɛ#nopʰ-ɨn#mwʌ-je-jo / 
+You will get the following result: <span style="color:blue">.t͡ɕigɨm hɐnɨl guɾɨm sɛk ɨn tɹˈɑːpɪkəl  jˈɛh</span>
 
 # Korean IPA automatic transcription
 Our transcription is based on rules. You can see them in the way generative phonology would prescribe them below.
