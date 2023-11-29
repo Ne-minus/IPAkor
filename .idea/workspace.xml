@@ -19,10 +19,32 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfcd4afa-eadd-4e64-9e7e-dc7162dc08ca" name="Default Changelist" comment="ipapy added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rhyme_rules.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rhyme_rules_new.py" beforeDir="false" />
+    <list default="true" id="bfcd4afa-eadd-4e64-9e7e-dc7162dc08ca" name="Default Changelist" comment="delete unnecessary🥰🥰">
+      <change beforePath="$PROJECT_DIR$/ipapy/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/arpabetmapper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/compatibility.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/data/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/data/arpabet.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/data/ipa.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/data/kirshenbaum.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/ipachar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/ipadescriptor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/ipastring.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/kirshenbaummapper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/mapper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/tests/test_arpabetmapper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/tests/test_compatibility.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/tests/test_init.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/tests/test_ipachar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/tests/test_ipastring.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipapy/tests/test_kirshenbaummapper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rhyming_vowels/creating_rhyming_vowels.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rhyming_vowels/en_en.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rhyming_vowels/en_ko.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rhyming_vowels/ko_en.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rhyming_vowels/ko_ko.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701282720214</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="delete unnecessary🥰🥰">
+      <created>1701282975241</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1701282975241</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -283,7 +312,8 @@
     <MESSAGE value="Add rules, changed ipapy" />
     <MESSAGE value="changed vowel distance computation" />
     <MESSAGE value="minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
+    <MESSAGE value="delete unnecessary" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete unnecessary" />
   </component>
   <component name="WindowStateProjectService">
     <state x="217" y="25" width="1000" height="875" key="#Intentions" timestamp="1699606463609">
@@ -331,12 +361,12 @@
     </state>
     <state x="113" y="25" key="SettingsEditor/0.25.1377.875@0.25.1377.875" timestamp="1701166371695" />
     <state x="113" y="25" key="SettingsEditor/0.25.1380.875@0.25.1380.875" timestamp="1699877677420" />
-    <state x="217" y="136" key="Vcs.Push.Dialog.v2" timestamp="1701282723417">
+    <state x="217" y="136" key="Vcs.Push.Dialog.v2" timestamp="1701282984906">
       <screen x="0" y="25" width="1380" height="875" />
     </state>
     <state x="217" y="136" key="Vcs.Push.Dialog.v2/0.25.1377.875@0.25.1377.875" timestamp="1701183164939" />
     <state x="217" y="136" key="Vcs.Push.Dialog.v2/0.25.1378.875@0.25.1378.875" timestamp="1701262837163" />
-    <state x="217" y="136" key="Vcs.Push.Dialog.v2/0.25.1380.875@0.25.1380.875" timestamp="1701282723417" />
+    <state x="217" y="136" key="Vcs.Push.Dialog.v2/0.25.1380.875@0.25.1380.875" timestamp="1701282984906" />
     <state x="501" y="363" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1701282611525">
       <screen x="0" y="25" width="1380" height="875" />
     </state>
