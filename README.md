@@ -2,7 +2,7 @@
 Authors: Alina Lobanova, Ekaterina Neminova, Varvara Vasilyeva, Alyona Zenina.  
 
 # How to use IPAkor
-If you do not have espeak installed on your system, please, do it beforehand using:  
+If you do not have ```espeak``` installed on your system, please, do it beforehand using:  
 
 **Linux**
 ```python
