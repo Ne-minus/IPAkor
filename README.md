@@ -6,6 +6,17 @@ This is the library for automated trancription from Korean and English to IPA.
 
 This is how our Python library IPAkor works:
 
+If you do not have espeak installed on your system, please, do it beforehand using:  
+
+**Linux**
+```python
+apt-get install espeak-ng
+```
+**Mac OS**
+```python
+brew install espeak-ng
+```
+
 ```
 ! pip install IPAkor
 import IPAkor
@@ -13,16 +24,6 @@ transcr = IPAkor.Transcription()
 print(transcr.transcribe('이해할수 있어요? 설악산의 높은 뭐예요?'))
 ```
 
-If you do not have espeak installed on your system, please, do it using:  
-
-**LINUX**
-```python
-apt-get install espeak-ng
-```
-**Mac OS**
-```python
-brew install 
-```
 **Windows**  
 Refer to the instructions [here](https://github.com/espeak-ng/espeak-ng/blob/master/docs/guide.md#windows)  
 
