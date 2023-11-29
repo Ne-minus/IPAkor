@@ -2,10 +2,6 @@
 Authors: Alina Lobanova, Ekaterina Neminova, Varvara Vasilyeva, Alyona Zenina.  
 
 # How to use IPAkor
-
-
-This is how our Python library IPAkor works:
-
 If you do not have espeak installed on your system, please, do it beforehand using:  
 
 **Linux**
