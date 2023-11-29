@@ -32,7 +32,7 @@ You cannot color plain text in a GitHub README.md file. You can however add colo
 To do this just add tags such as these samples to your README.md file:
 
 ```html
-   // #FF00FF
+   <span style="color: green"> Some green text </span>
 ```
 # Korean IPA automatic transcription
 Our transcription is based on rules. You can see them in the way generative phonology would prescribe them below.
