@@ -12,8 +12,10 @@ import IPAkor
 transcr = IPAkor.Transcription()
 print(transcr.transcribe('이해할수 있어요? 설악산의 높은 뭐예요?'))
 ```
+
 **Warning**  
-If you do not have espeak installed on your system, please, do it using:
+If you do not have espeak installed on your system, please, do it using:  
+
 **LINUX**
 ```python
 apt-get install espeak-ng
