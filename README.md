@@ -11,14 +11,15 @@ If you do not have espeak installed on your system, please, do it beforehand usi
 **Linux**
 ```python
 apt-get install espeak-ng
+pip install IPAkor
 ```
 **Mac OS**
 ```python
 brew install espeak-ng
+pip install IPAkor
 ```
-
-```
-! pip install IPAkor
+Now you are ready to go!☺️
+```python
 import IPAkor
 transcr = IPAkor.Transcription()
 print(transcr.transcribe('이해할수 있어요? 설악산의 높은 뭐예요?'))
