@@ -1,10 +1,11 @@
 import re
-from konlpy.tag import Twitter
-from konlpy.tag import Kkma
 import csv
-import wget
 import os
-
+from konlpy.tag import Kkma
+from konlpy.tag import Twitter
+from phonemizer.punctuation import Punctuation
+from phonemizer.separator import Separator
+from phonemizer.backend import EspeakBackend
 
 class BorderMaker:
 
@@ -394,3 +395,50 @@ class Transcription:
         given = self.pot(given)
         given = self.c_to_tc(given)
         return given
+
+
+class UniTranscript:
+    def __init__(self):
+        self.transcr = Transcription()
+        self.kkma = Kkma()
+        self.backend = EspeakBackend('en-us', with_stress=True)
+
+    def transcribator(self, line):
+        words = self.kkma.pos(line)
+        sequences = []
+        langs = []
+        # добавим кусочки
+        for w in words:
+            if w[1] == 'OL':
+                if len(langs) == 0:
+                    langs.append(0)
+                    sequences.append(w[0])
+                elif langs[-1] == 0:
+                    sequences[-1] += ' ' + w[0].lower()
+                else:
+                    langs.append(0)
+                    sequences.append(w[0])
+            elif w[1] != 'SF':
+                if len(langs) == 0:
+                    langs.append(1)
+                    sequences.append(w[0])
+                elif langs[-1] == 1:
+                    sequences[-1] += ' ' + w[0].lower()
+                else:
+                    langs.append(1)
+                    sequences.append(w[0])
+
+        transcription = ''
+
+        # идём по кусочкам и транскрибируем их чем надо
+        for i, seq in enumerate(sequences):
+            if langs[i] == 1:
+                tr = self.transcr.transcribe(seq)
+                tr = tr.replace('-', '')
+                tr = tr.replace('#', ' ')
+                tr = tr.replace(' / ', ' ')
+                transcription += ' ' + tr.strip(' ')
+            else:
+                transcription += ' ' + self.backend.phonemize([seq], strip=True)[0]
+
+        return transcription.strip(' ')

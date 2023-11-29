@@ -1,2 +1,2 @@
 from IPAkor.border_maker import BorderMaker
-from .transcription import Transcription
+from IPAkor.transcription import UniTranscript
