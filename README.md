@@ -25,7 +25,7 @@ transcr = UniTranscript()
 print(transcr.transcribator('지금 하늘 구름 색은 tropical, yeah'))
 ```
   
-You will get the following result: 
+You will get the following result: **t͡ɕigɨm hɐnɨl guɾɨm sɛk ɨn tɹˈɑːpɪkəl  jˈɛh**
 
 You cannot color plain text in a GitHub README.md file. You can however add color to code samples with the tags below.
 
@@ -136,4 +136,3 @@ We mainly used the following sources:
 2. Касаткина И. Л., Чон Ин Сун, Пентюхова В. Е. Учебник корейского языка. М.: ООО НИЦ "Инженер", 2012.
 3. Sun-Ah Jun. The Status of the Lenis Stop Voicing Rule in Korean. Theoretical Issues in Korean Linguistics, 1994.
 4. Ho-Min Sohn. The Korean Language. Cambridge Language Surveys, Cambridge University Press, 1999.
-
