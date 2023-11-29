@@ -25,8 +25,10 @@ transcr = UniTranscript()
 print(transcr.transcribator('지금 하늘 구름 색은 tropical, yeah'))
 ```
   
-You will get the following result: <span style="color:blue">.t͡ɕigɨm hɐnɨl guɾɨm sɛk ɨn tɹˈɑːpɪkəl  jˈɛh</span>
-
+You will get the following result: 
+```diff
+@@ t͡ɕigɨm hɐnɨl guɾɨm sɛk ɨn tɹˈɑːpɪkəl  jˈɛh@@
+```
 # Korean IPA automatic transcription
 Our transcription is based on rules. You can see them in the way generative phonology would prescribe them below.
 
