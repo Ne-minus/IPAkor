@@ -26,8 +26,13 @@ print(transcr.transcribator('지금 하늘 구름 색은 tropical, yeah'))
 ```
   
 You will get the following result: 
-```diff
-@@ t͡ɕigɨm hɐnɨl guɾɨm sɛk ɨn tɹˈɑːpɪkəl  jˈɛh@@
+
+You cannot color plain text in a GitHub README.md file. You can however add color to code samples with the tags below.
+
+To do this just add tags such as these samples to your README.md file:
+
+```html
+   // #FF00FF
 ```
 # Korean IPA automatic transcription
 Our transcription is based on rules. You can see them in the way generative phonology would prescribe them below.
