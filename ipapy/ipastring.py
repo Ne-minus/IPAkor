@@ -257,7 +257,7 @@ class IPAString(MutableSequence):
 
         :rtype: IPAString
         """
-        return IPAString(ipa_chars=[c for c in self.ipa_chars if c.is_letter])
+        return IPAString(ipa_chars=[c for c in self.ipa_chars if c.is_letter or c.is_diacritic])
 
     @property
     def cns_vwl_pstr(self):
