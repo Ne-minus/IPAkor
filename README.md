@@ -29,6 +29,7 @@ transcr = IPAkor.Transcription()
 print(transcr.transcribe('이해할수 있어요? 설악산의 높은 뭐예요?'))
 ```
 
+
 You will get the following result: i-ɦɛ#hɐl-su / is͈-ʌ-jo / sʌɾ-ɐk-sɐn-ɛ#nopʰ-ɨn#mwʌ-je-jo / 
 
 # Korean IPA automatic transcription
