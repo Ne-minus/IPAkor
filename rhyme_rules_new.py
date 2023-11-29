@@ -7,7 +7,7 @@ import json
 class Rhymer:
 
     def __init__(self, lang1, lang2):
-        self.difs = ['eɪ', 'oʊ', 'aɪɚ', 'aɪ', 'uə']
+        self.difs = ['eɪ', 'oʊ', 'aɪɚ', 'aɪ', 'uə', 'ɔɪ']
         self.dict_pos = {'front': 1, 'near-front': 0.5,
                      'central': 0,
                      'near-back': -0.5,'back': -1}
