@@ -507,7 +507,7 @@ class IPAChar(object):
 
 def is_list_of_ipachars(obj):
     """
-    Return ``True`` if the given object is a list of IPAChar objects.
+    Return ``True`` if the given object is a list of self.rhyming_vowels objects.
 
     :param object obj: the object to test
     :rtype: bool

@@ -14,7 +14,9 @@ class Rhymer:
         self.dict_raise = {'open': 1, 'near-open': 0.75, 'open-mid': 0.5,
                      'mid': 0,
                      'close-mid': -0.5, 'near-close': -0.75,'close': -1}
-        with open('rhyming_vowels/lang1_lang2.json', 'r', encoding='utf-8') as rvf:
+
+
+        with open(f'rhyming_vowels/{lang1}_{lang2}.json', 'r', encoding='utf-8') as rvf:
             self.rhyming_vowels = json.load(rvf)
 
     @staticmethod
@@ -132,10 +134,14 @@ class Rhymer:
         if v1.is_equivalent(v2):
             return 'exact_'
         else:
-            if [v1, v2] in self.rhyming_vowels:
+            # print(self.rhyming_vowels)
+            # print([v1.unicode_repr, v2.unicode_repr])
+            # print(self.rhyming_vowels)
+            if [v1.unicode_repr, v2.unicode_repr] in self.rhyming_vowels:
+                print(1)
                 return 'rhyme_'
             else:
-                return 'not_a_rhyme_'
+                return 'not a rhyme_'
 
     def get_rhyme_type(self, string1, string2):
         """
@@ -170,7 +176,7 @@ class Rhymer:
 
 
 if __name__ == '__main__':
-    rhymer = Rhymer()
+    rhymer = Rhymer('ko', 'en')
     df = pd.read_csv('important_trash/processed.csv')
     df['rhyme_type'] = df.apply(lambda x: rhymer.get_rhyme_type(x.kor_transcribed, x.eng_transcribed), axis=1)
     df[['vowel', 'consonant']] = df.rhyme_type.str.split('_', expand=True)
