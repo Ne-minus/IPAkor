@@ -1,6 +1,6 @@
 ### IPAkor is a library for automatic translation from Korean and English to  IPA.
 
-# How to use IPAkor
+## How to use IPAkor
 If you do not have **espeak** installed on your system, please, do it beforehand using:  
 
 **Linux**
@@ -26,18 +26,18 @@ print(transcr.transcribator('지금 하늘 구름 색은 tropical, yeah'))
 >>> t͡ɕigɨm hɐnɨl guɾɨm sɛk ɨn tɹˈɑːpɪkəl  jˈɛh
 ```
 
-# Korean IPA automatic transcription
+## Korean IPA automatic transcription
 Our transcription is based on rules. You can see them in the way generative phonology would prescribe them below.
 
 We believe the transcription to represent the South Korean standard language.
 
-## Phonemes
+### Phonemes
 Currently we took phonems from \[4\]. You can see how syllables correspond to transcription BEFORE any rules are applied in final_trans.csv.
 However, we are aware that these might be not the best options, so we will work on it later.
 
-## The rules
+### The rules
 
-### Position rules
+**Position rules**  
 c → t / _ #, c͈ → t / _ #, cʰ → t / _ #
 
 h → t / _ #, s → t /_ #, s͈ → t / _ #
@@ -46,7 +46,7 @@ h → ɦ / V _ V
 
 We also handled position dependent readings of ㄹ and ㅢ.
 
-### Assimilation
+**Assimilation**  
 - by aspiration
 
 k → kʰ/h_, t → tʰ/h_, p → pʰ/h_
@@ -75,14 +75,14 @@ c → k/_k, t → k/_k, p → k/_k
 
 n → m/_p
 
-### Palatalization
+**Palatalization**  
 All consonants become palatalized before \[i\] and \[e\].
 
-### Post-Obstruent Tensification (POT)
+**Post-Obstruent Tensification (POT)**  
 After obstruents, other obstruents become tense (for example: t → t͈/p_). 
 We won't be listing all rules due to big number of combinanions.
 
-### Grammar-specific rules
+**Grammar-specific rules**  
 Grammar analysis was made with Twitter morphological parser by https://konlpy.org .
 
 Genitive is transcripted as \[ɛ\].
@@ -95,10 +95,10 @@ We prevent voicing in grammars:
 
 Please, let us know if any grammar that should have voicing by rules but in reality doesn't comes to your mind.
 
-## Challenges
+### Challenges
 
 
-### Voicing
+**Voicing**
 Voicing is not a phonological feature in Korean. "Weak" vowels are sometimes voiced and sometimes aren't. 
 They (almost) always are between vowels or sonorants inside one words (남자, 오기). But between words it's not always the case.
 
@@ -109,13 +109,13 @@ We took this idea to make the voicing rules.
 We use https://konlpy.org Twitter morphological parser to predict (based on our own rules) where the phonetic word begins and ends. 
 This part is quite sophisticated and we are yet to test and develop it. Probably a separate reaserch would be needed.
 
-### Yet to be done
+**Yet to be done**
 1. Spiritization of ㅅ(s) and ㅈ(c) classes before \[i\] and such.
 2. Some rules work differently before plain vowels and diphthongs.
 3. Merge several same class consonants into one.
 4. Change some symbols to more IPA-appropriate.
 
-### What we ignored
+**What we ignored**  
 1. Words like 지하철역, 알약, 십육 which have ethymological ㄹ in place of written ㅇ, are read as if they don't have ethymological ㄹ.
 2. Originally Chinese words that do not have voicing (like 길가) do have it in our transcription.
 
