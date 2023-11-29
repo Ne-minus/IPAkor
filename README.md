@@ -1,6 +1,5 @@
-Authors: Alina Lobanova, Ekaterina Neminova, Varvara Vasilyeva, Alyona Zenina.  
-
 ### IPAkor is a library for automatic translation from Korean and English to  IPA.
+Authors: Alina Lobanova, Ekaterina Neminova, Varvara Vasilyeva, Alyona Zenina.  
 
 # How to use IPAkor
 
