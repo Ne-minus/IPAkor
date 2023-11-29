@@ -1,4 +1,6 @@
 Authors: Alina Lobanova, Ekaterina Neminova, Varvara Vasilyeva, Alyona Zenina.  
+
+   
 This is the library for automated trancription from Korean and English to IPA.
 
 # How to use IPAkor
