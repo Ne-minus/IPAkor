@@ -1,4 +1,4 @@
-### IPAkor is a library for automatic translation from Korean and English to  IPA.
+### IPAkor is a library for automatic transcription from Korean and English to  IPA.
 
 ## Table of contents
 1. [How to use IPAkor](#how-to-use-ipakor)
