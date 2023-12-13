@@ -202,11 +202,11 @@ class Transcription:
                 for k, v in stops_to_sonors.items():
                     bgram = re.search(r'(lg|ps|ks|lb|cʰ|kʰ|tʰ|pʰ|t͈|k͈|p͈|c͈)', chunks[i][-2:])
                     if bgram is None:
-                        if chunks[i][-1] in v and chunks[i + 1][0] == 'ɾ':
+                        if chunks[i] != '' and chunks[i][-1] in v and chunks[i + 1][0] == 'ɾ':
                             chunks[i] = chunks[i][:-1] + k
                             chunks[i + 1] = 'n' + chunks[i + 1][1:]
 
-                        elif chunks[i][-1] in v and chunks[i + 1][0] in sonors:
+                        elif chunks[i] != '' and chunks[i][-1] in v and chunks[i + 1][0] in sonors:
                             chunks[i] = chunks[i][:-1] + k
                     else:
                         if bgram.group(1) in v and chunks[i + 1][0] == 'ɾ':
@@ -241,15 +241,15 @@ class Transcription:
         for s in seps:
             chunks = given.split(s)
             for i in range(len(chunks) - 1):
-                if chunks[i][-1] == 'ɾ' and chunks[i + 1][0] == 'n':
+                if chunks[i] != '' and chunks[i][-1] == 'ɾ' and chunks[i + 1][0] == 'n':
                     chunks[i] = chunks[i][:-1] + 'l'
                     chunks[i + 1] = 'l' + chunks[i + 1][1:]
 
-                elif chunks[i][-1] == 'n' and chunks[i + 1][0] == 'ɾ':
+                elif chunks[i] != '' and chunks[i][-1] == 'n' and chunks[i + 1][0] == 'ɾ':
                     chunks[i] = chunks[i][:-1] + 'l'
                     chunks[i + 1] = 'l' + chunks[i + 1][1:]
 
-                elif chunks[i][-1] in final_sonor and chunks[i + 1][0] == 'ɾ':
+                elif chunks[i] != '' and chunks[i][-1] in final_sonor and chunks[i + 1][0] == 'ɾ':
                     chunks[i + 1] = 'n' + chunks[i + 1][1:]
             given = s.join(chunks)
 
@@ -269,37 +269,37 @@ class Transcription:
             chunks = given.split(s)
             for i in range(len(chunks) - 1):
 
-                if chunks[i][-2:] in coronals or chunks[i][-2:] in labial or chunks[i][-2:] in post_alveolar:
+                if chunks[i] != '' and chunks[i][-2:] in coronals or chunks[i][-2:] in labial or chunks[i][-2:] in post_alveolar:
                     j = -2
                 else:
                     j = -1
 
                 # before labial
-                if chunks[i][j] in coronals and chunks[i + 1][0] in labial and chunks[i + 1][0] != 'm':
+                if chunks[i] != '' and chunks[i][j] in coronals and chunks[i + 1][0] in labial and chunks[i + 1][0] != 'm':
                     chunks[i] = chunks[i][:j] + 'p'
 
-                elif chunks[i][j] == 'n' and chunks[i + 1][0] in labial and chunks[i + 1][0] != 'm':
+                elif chunks[i] != '' and chunks[i][j] == 'n' and chunks[i + 1][0] in labial and chunks[i + 1][0] != 'm':
                     chunks[i] = chunks[i][:j] + 'm'
 
                 # before velars
-                elif chunks[i][j] in coronals and chunks[i + 1][0] in velars:
+                elif chunks[i] != '' and chunks[i][j] in coronals and chunks[i + 1][0] in velars:
                     chunks[i] = chunks[i][:j] + 'k'
 
-                elif chunks[i][j] == 'n' and chunks[i + 1][0] in velars:
+                elif chunks[i] != '' and chunks[i][j] == 'n' and chunks[i + 1][0] in velars:
                     chunks[i] = chunks[i][:j] + 'ŋ'
 
                 # before post_alveolar
-                elif chunks[i][j] in coronals and chunks[i + 1][0] in post_alveolar:
+                elif chunks[i] != '' and chunks[i][j] in coronals and chunks[i + 1][0] in post_alveolar:
                     chunks[i] = chunks[i][:j] + 'c'
 
                 # labials and post alveolars assimilate to velars
-                elif chunks[i][j] in labial and chunks[i + 1][0] in velars and chunks[i][-1] != 'm':
+                elif chunks[i] != '' and chunks[i][j] in labial and chunks[i + 1][0] in velars and chunks[i][-1] != 'm':
                     chunks[i] = chunks[i][:j] + 'k'
 
-                elif chunks[i][j] in labial and chunks[i + 1][0] in velars and chunks[i][-1] == 'm':
+                elif chunks[i] != '' and chunks[i][j] in labial and chunks[i + 1][0] in velars and chunks[i][-1] == 'm':
                     chunks[i] = chunks[i][:j] + 'ŋ'
 
-                elif chunks[i][j] in post_alveolar and chunks[i + 1][0] in velars:
+                elif chunks[i] != '' and chunks[i][j] in post_alveolar and chunks[i + 1][0] in velars:
                     chunks[i] = chunks[i][:j] + 'k'
             given = s.join(chunks)
 
