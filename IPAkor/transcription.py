@@ -403,42 +403,39 @@ class UniTranscript:
         self.kkma = Kkma()
         self.backend = EspeakBackend('en-us', with_stress=True)
 
-    def transcribator(self, line):
-        words = self.kkma.pos(line)
-        sequences = []
-        langs = []
-        # добавим кусочки
-        for w in words:
-            if w[1] == 'OL':
-                if len(langs) == 0:
-                    langs.append(0)
-                    sequences.append(w[0])
-                elif langs[-1] == 0:
-                    sequences[-1] += ' ' + w[0].lower()
+    def transcribator(line):
+    sequences = ['']
+    langs = [1]
+    en_letters = 'qwertyuioplkjhgfdsazxcvbnmñï'
+    # добавим кусочки
+    for symb in line.lower():
+        if symb.isalpha():
+            if symb in en_letters:
+                if langs[-1] == 0:
+                    sequences[-1] += symb
                 else:
                     langs.append(0)
-                    sequences.append(w[0])
-            elif w[1] != 'SF':
-                if len(langs) == 0:
-                    langs.append(1)
-                    sequences.append(w[0])
-                elif langs[-1] == 1:
-                    sequences[-1] += ' ' + w[0].lower()
-                else:
-                    langs.append(1)
-                    sequences.append(w[0])
-
-        transcription = ''
-
-        # идём по кусочкам и транскрибируем их чем надо
-        for i, seq in enumerate(sequences):
-            if langs[i] == 1:
-                tr = self.transcr.transcribe(seq)
-                tr = tr.replace('-', '')
-                tr = tr.replace('#', ' ')
-                tr = tr.replace(' / ', ' ')
-                transcription += ' ' + tr.strip(' ')
+                    sequences.append(symb)
             else:
-                transcription += ' ' + self.backend.phonemize([seq], strip=True)[0]
+                if langs[-1] == 1:
+                    sequences[-1] += symb
+                else:
+                    langs.append(1)
+                    sequences.append(symb)
+        elif symb == ' ':
+            sequences[-1] += ' '
 
-        return transcription.strip(' ')
+    transcription = ''
+
+    # идём по кусочкам и транскрибируем их чем надо
+    for i, seq in enumerate(sequences):
+        if langs[i] == 1:
+            tr = transcr.transcribe(seq)
+            tr = tr.replace('-', '')
+            tr = tr.replace('#', ' ')
+            tr = tr.replace(' / ', ' ')
+            transcription += ' ' + tr.strip(' ')
+        else:
+            transcription += ' ' + backend.phonemize([seq], strip=True)[0]
+
+    return transcription.strip(' ')
